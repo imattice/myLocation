@@ -28,6 +28,17 @@ class LocationDetailViewController: UITableViewController {
     var placemark: CLPlacemark?
     var categoryName = "No Category"
     
+    func hideKeyboard(gestureRecognizer: UIGestureRecognizer) {
+        let point = gestureRecognizer.locationInView(tableView)
+        let indexPath = tableView.indexPathForRowAtPoint(point)
+        
+        //don't hide if the user taps the text view!
+        if indexPath != nil && indexPath!.section == 0 && indexPath!.row == 0 {
+            return
+        }
+        
+        descriptionTextView.resignFirstResponder()
+    }
     func stringFromPlacemark(placemark: CLPlacemark) -> String {
         var text = ""
         
@@ -71,6 +82,11 @@ class LocationDetailViewController: UITableViewController {
         }
         
         dateLabel.text = formatDate(NSDate())
+        
+        //hides keyboard if user taps outside of text view
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("hideKeyboard:"))
+        gestureRecognizer.cancelsTouchesInView = false
+        tableView.addGestureRecognizer(gestureRecognizer)
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "PickCategory" {
@@ -92,8 +108,33 @@ class LocationDetailViewController: UITableViewController {
             return 44
         }
     }
+    override func tableView(tableView: UITableView,
+                            willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        //only allow taps on the first two sections
+        if indexPath.section == 0 || indexPath.section == 1 {
+            return indexPath
+        } else {
+        //disable taps in all other sections
+            return nil
+        }
+    }
+    override func tableView(tableView: UITableView,
+                            didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //enable the text view if the user taps the cell, but not the text view itself
+        if indexPath.section == 0 && indexPath.row == 0 {
+            descriptionTextView.becomeFirstResponder()
+        }
+    }
+    
+    
     @IBAction func done() {
-        dismissViewControllerAnimated(true, completion: nil)   
+        let hudView = HudView.hudInView(navigationController!.view, animated: true)
+        
+        hudView.text = "Tagged"
+        
+        afterDelay(0.6) {
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
     @IBAction func cancel() {
         dismissViewControllerAnimated(true, completion: nil)
