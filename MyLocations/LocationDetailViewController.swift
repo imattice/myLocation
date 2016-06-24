@@ -8,7 +8,9 @@
 
 import UIKit
 import CoreLocation
+import CoreData
 
+var date = NSDate()
 private let dateFormatter: NSDateFormatter = {
     let formatter = NSDateFormatter()
     formatter.dateStyle = .MediumStyle
@@ -27,6 +29,7 @@ class LocationDetailViewController: UITableViewController {
     var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     var placemark: CLPlacemark?
     var categoryName = "No Category"
+    var managedObjectContext: NSManagedObjectContext!
     
     func hideKeyboard(gestureRecognizer: UIGestureRecognizer) {
         let point = gestureRecognizer.locationInView(tableView)
@@ -81,7 +84,7 @@ class LocationDetailViewController: UITableViewController {
             addressLabel.text = "No Address Found"
         }
         
-        dateLabel.text = formatDate(NSDate())
+        dateLabel.text = formatDate(date)
         
         //hides keyboard if user taps outside of text view
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("hideKeyboard:"))
@@ -94,6 +97,43 @@ class LocationDetailViewController: UITableViewController {
             controller.selectedCategoryName = categoryName
         }
     }
+
+    @IBAction func done() {
+        let hudView = HudView.hudInView(navigationController!.view, animated: true)
+        
+        hudView.text = "Tagged"
+        
+        //create a new location object and fill in it's properties
+        let location = NSEntityDescription.insertNewObjectForEntityForName("Location", inManagedObjectContext: managedObjectContext) as! Location
+        
+        location.locationDescription = descriptionTextView.text
+        location.category = categoryName
+        location.latitude = coordinate.latitude
+        location.longitude = coordinate.longitude
+        location.date = date
+        location.placemark = placemark
+        
+        do {
+            try managedObjectContext.save()
+        } catch {
+            fatalCoreDataError(error)
+        }
+        
+        afterDelay(0.6) {
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+    }
+    @IBAction func cancel() {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    @IBAction func categoryPickerDidPickCategory(segue: UIStoryboardSegue) {
+        let controller = segue.sourceViewController as! CategoryPickerViewController
+        
+        categoryName = controller.selectedCategoryName
+        categoryLabel.text = categoryName
+    }
+   
+    
 //MARK: UITableViewDelegate
     override func tableView(tableView: UITableView,
                             heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -124,25 +164,5 @@ class LocationDetailViewController: UITableViewController {
         if indexPath.section == 0 && indexPath.row == 0 {
             descriptionTextView.becomeFirstResponder()
         }
-    }
-    
-    
-    @IBAction func done() {
-        let hudView = HudView.hudInView(navigationController!.view, animated: true)
-        
-        hudView.text = "Tagged"
-        
-        afterDelay(0.6) {
-            self.dismissViewControllerAnimated(true, completion: nil)
-        }
-    }
-    @IBAction func cancel() {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    @IBAction func categoryPickerDidPickCategory(segue: UIStoryboardSegue) {
-        let controller = segue.sourceViewController as! CategoryPickerViewController
-        
-        categoryName = controller.selectedCategoryName
-        categoryLabel.text = categoryName
     }
 }
