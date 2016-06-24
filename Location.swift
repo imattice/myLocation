@@ -8,7 +8,23 @@
 
 import Foundation
 import CoreData
+import CoreLocation
 
+//func buildAddress(location: Location) -> String {
+//    if let placemark = location.placemark {
+//        var text = ""
+//        if let s = placemark.subThoroughfare {
+//            text += s + " "
+//        }
+//        if let s = placemark.thoroughfare {
+//            text += s + ", "
+//        }
+//        if let s = placemark.locality {
+//            text += s
+//        }
+//    }
+//    return text
+//}
 
 class Location: NSManagedObject {
 
