@@ -15,6 +15,7 @@
 		7FBAA6951D1C98C3003E7B94 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBAA6931D1C98C3003E7B94 /* Location+CoreDataProperties.swift */; };
 		7FBAA6961D1C98C3003E7B94 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBAA6941D1C98C3003E7B94 /* Location.swift */; };
 		7FBAA69C1D1DE20F003E7B94 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBAA69B1D1DE20F003E7B94 /* LocationsViewController.swift */; };
+		7FBAA69E1D1DF494003E7B94 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBAA69D1D1DF494003E7B94 /* LocationCell.swift */; };
 		7FEDD6831D1347D1001AC853 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEDD6821D1347D1001AC853 /* AppDelegate.swift */; };
 		7FEDD6851D1347D1001AC853 /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEDD6841D1347D1001AC853 /* CurrentLocationViewController.swift */; };
 		7FEDD68A1D1347D1001AC853 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FEDD6881D1347D1001AC853 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 		7FBAA6931D1C98C3003E7B94 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Location+CoreDataProperties.swift"; path = "../Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7FBAA6941D1C98C3003E7B94 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = ../Location.swift; sourceTree = "<group>"; };
 		7FBAA69B1D1DE20F003E7B94 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
+		7FBAA69D1D1DF494003E7B94 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		7FEDD67F1D1347D0001AC853 /* MyLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FEDD6821D1347D1001AC853 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FEDD6841D1347D1001AC853 /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 		7FBAA6991D1DDA44003E7B94 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7FBAA69D1D1DF494003E7B94 /* LocationCell.swift */,
 				7FBAA68C1D19D491003E7B94 /* HudView.swift */,
 			);
 			name = Views;
@@ -198,6 +201,7 @@
 				7FBAA69C1D1DE20F003E7B94 /* LocationsViewController.swift in Sources */,
 				7FBAA68D1D19D491003E7B94 /* HudView.swift in Sources */,
 				7FBAA68F1D1B0869003E7B94 /* Functions.swift in Sources */,
+				7FBAA69E1D1DF494003E7B94 /* LocationCell.swift in Sources */,
 				7FBAA6951D1C98C3003E7B94 /* Location+CoreDataProperties.swift in Sources */,
 				7FEDD6831D1347D1001AC853 /* AppDelegate.swift in Sources */,
 				7FBAA68B1D18ACB3003E7B94 /* CategoryPickerViewController.swift in Sources */,
