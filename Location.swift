@@ -11,22 +11,6 @@ import CoreData
 import CoreLocation
 import MapKit
 
-//func buildAddress(location: Location) -> String {
-//    if let placemark = location.placemark {
-//        var text = ""
-//        if let s = placemark.subThoroughfare {
-//            text += s + " "
-//        }
-//        if let s = placemark.thoroughfare {
-//            text += s + ", "
-//        }
-//        if let s = placemark.locality {
-//            text += s
-//        }
-//    }
-//    return text
-//}
-
 class Location: NSManagedObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2DMake(latitude, longitude)
@@ -41,5 +25,25 @@ class Location: NSManagedObject, MKAnnotation {
     var subtitle: String? {
         return category
     }
-
+    var photoImage: UIImage? {
+        return UIImage(contentsOfFile: photoPath)
+    }
+    var hasPhoto: Bool {
+        return photoID != nil
+    }
+    var photoPath: String {
+        assert(photoID != nil, "No photo ID set")
+        let filename = "Photo-\(photoID!.integerValue).jpg"
+        return (applicationDocumentsDirectory as NSString).stringByAppendingPathComponent(filename)
+    }
+    
+    class func nextPhotoID() -> Int {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let currentID = userDefaults.integerForKey("PhotoID")
+       
+        userDefaults.setInteger(currentID + 1, forKey: "PhotoID")
+        userDefaults.synchronize()
+       
+        return currentID
+    }
 }

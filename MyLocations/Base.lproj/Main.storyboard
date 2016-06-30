@@ -162,6 +162,10 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="jS1-BW-Lsn">
+                                                    <rect key="frame" x="106" y="4" width="149" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -286,10 +290,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addPhotoLabel" destination="4Wk-kw-7vr" id="Wuw-Pr-70T"/>
                         <outlet property="addressLabel" destination="2f9-Ju-8n2" id="JuK-nf-7kO"/>
                         <outlet property="categoryLabel" destination="1db-No-Rf4" id="rdh-XF-M7h"/>
                         <outlet property="dateLabel" destination="AHS-38-n1R" id="p4p-Sg-dg3"/>
                         <outlet property="descriptionTextView" destination="c44-jp-nXb" id="Rny-qQ-g4L"/>
+                        <outlet property="imageView" destination="jS1-BW-Lsn" id="xML-Vu-xmY"/>
                         <outlet property="latitudeLabel" destination="cL7-tV-NKy" id="iN8-SQ-PlW"/>
                         <outlet property="longitudeLabel" destination="ZOu-36-zYh" id="2dk-ed-FLw"/>
                     </connections>
@@ -380,6 +386,9 @@
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
+                                <connections>
+                                    <outlet property="delegate" destination="qmo-FV-hTc" id="xuw-qs-p1P"/>
+                                </connections>
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -496,6 +505,6 @@
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Jlg-3F-wxy"/>
+        <segue reference="wS0-3a-MaK"/>
     </inferredMetricsTieBreakers>
 </document>
