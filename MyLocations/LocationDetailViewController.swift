@@ -47,6 +47,56 @@ class LocationDetailViewController: UITableViewController {
     }
     var observer: AnyObject!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        listenForBackgroundNotification()
+        
+        if let location = locationToEdit {
+            title = "Edit Location"
+            if location.hasPhoto {
+                if let image = location.photoImage {
+                    showImage(image)
+                }
+            }
+        }
+        
+        descriptionTextView.text = descriptionText
+        categoryLabel.text = categoryName
+        
+        latitudeLabel.text = String(format: "%.8f", coordinate.latitude)
+        longitudeLabel.text = String(format: "%.8f", coordinate.longitude)
+        
+        if let placemark = placemark {
+            addressLabel.text = stringFromPlacemark(placemark)
+        } else {
+            addressLabel.text = "No Address Found"
+        }
+        
+        dateLabel.text = formatDate(date)
+        
+        //hides keyboard if user taps outside of text view
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("hideKeyboard:"))
+        gestureRecognizer.cancelsTouchesInView = false
+        tableView.addGestureRecognizer(gestureRecognizer)
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "PickCategory" {
+            let controller = segue.destinationViewController as! CategoryPickerViewController
+            controller.selectedCategoryName = categoryName
+        }
+    }
+    func listenForBackgroundNotification() {
+        observer = NSNotificationCenter.defaultCenter().addObserverForName(UIApplicationDidEnterBackgroundNotification, object: nil, queue: NSOperationQueue.mainQueue()) { [weak self] _ in
+            if let strongSelf = self {
+                if strongSelf.presentedViewController != nil {
+                    strongSelf.dismissViewControllerAnimated(false, completion: nil)
+                }
+                
+                strongSelf.descriptionTextView.resignFirstResponder()
+            }
+        }
+    }
+
     func hideKeyboard(gestureRecognizer: UIGestureRecognizer) {
         let point = gestureRecognizer.locationInView(tableView)
         let indexPath = tableView.indexPathForRowAtPoint(point)
@@ -89,51 +139,6 @@ class LocationDetailViewController: UITableViewController {
         imageView.hidden = false
         imageView.frame = CGRect(x: 10, y: 10, width: 260, height: 260)
         addPhotoLabel.hidden = true
-    }
-
-    func listenForBackgroundNotification() {
-        observer = NSNotificationCenter.defaultCenter().addObserverForName(UIApplicationDidEnterBackgroundNotification, object: nil, queue: NSOperationQueue.mainQueue()) { [weak self] _ in
-            if let strongSelf = self {
-                if strongSelf.presentedViewController != nil {
-                    strongSelf.dismissViewControllerAnimated(false, completion: nil)
-                }
-                
-                strongSelf.descriptionTextView.resignFirstResponder()
-            }
-        }
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        listenForBackgroundNotification()
-        
-        if let location = locationToEdit {
-            title = "Edit Location"
-        }
-        
-        descriptionTextView.text = descriptionText
-        categoryLabel.text = categoryName
-        
-        latitudeLabel.text = String(format: "%.8f", coordinate.latitude)
-        longitudeLabel.text = String(format: "%.8f", coordinate.longitude)
-        
-        if let placemark = placemark {
-            addressLabel.text = stringFromPlacemark(placemark)
-        } else {
-            addressLabel.text = "No Address Found"
-        }
-        
-        dateLabel.text = formatDate(date)
-        
-        //hides keyboard if user taps outside of text view
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("hideKeyboard:"))
-        gestureRecognizer.cancelsTouchesInView = false
-        tableView.addGestureRecognizer(gestureRecognizer)
-    }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "PickCategory" {
-            let controller = segue.destinationViewController as! CategoryPickerViewController
-            controller.selectedCategoryName = categoryName
-        }
     }
 
     deinit {

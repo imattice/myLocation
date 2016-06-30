@@ -46,4 +46,19 @@ class Location: NSManagedObject, MKAnnotation {
        
         return currentID
     }
+    
+    func removePhotoFile() {
+        if hasPhoto {
+            let path = photoPath
+            let fileManager = NSFileManager.defaultManager()
+            
+            if fileManager.fileExistsAtPath(path) {
+                do {
+                    try fileManager.removeItemAtPath(path)
+                } catch {
+                    print("Error removing file: \(error)")
+                }
+            }
+        }
+    }
 }
