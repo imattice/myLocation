@@ -109,27 +109,15 @@ class LocationDetailViewController: UITableViewController {
         descriptionTextView.resignFirstResponder()
     }
     func stringFromPlacemark(placemark: CLPlacemark) -> String {
-        var text = ""
+        var line = ""
+        line.addAddressPart(placemark.subThoroughfare)
+        line.addAddressPart(placemark.thoroughfare, withSeparator: " ")
+        line.addAddressPart(placemark.locality, withSeparator: "\n")
+        line.addAddressPart(placemark.administrativeArea, withSeparator: ", ")
+        line.addAddressPart(placemark.postalCode, withSeparator: " ")
+        line.addAddressPart(placemark.country, withSeparator: ", ")
         
-        if let s = placemark.subThoroughfare {
-            text += s + " "
-        }
-        if let s = placemark.thoroughfare {
-            text += s + ", "
-        }
-        if let s = placemark.locality {
-            text += s + ", "
-        }
-        if let s = placemark.administrativeArea {
-            text += s + " "
-        }
-        if let s = placemark.postalCode {
-            text += s + ", "
-        }
-        if let s = placemark.country {
-            text += s
-        }
-        return text
+        return line
     }
     func formatDate(date: NSDate) -> String {
         return dateFormatter.stringFromDate(date)
@@ -272,7 +260,10 @@ extension LocationDetailViewController: UIImagePickerControllerDelegate, UINavig
         presentViewController(alertController, animated: true, completion: nil)
     }
     func takePhotoWithCamera() {
-        let imagePicker = UIImagePickerController()
+        let imagePicker = CustomImagePickerController()
+
+        imagePicker.view.tintColor = view.tintColor
+        
         imagePicker.sourceType = .Camera
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
@@ -280,6 +271,9 @@ extension LocationDetailViewController: UIImagePickerControllerDelegate, UINavig
     }
     func choosePhotoFromLibrary() {
         let imagePicker = UIImagePickerController()
+        
+        imagePicker.view.tintColor = view.tintColor
+        
         imagePicker.sourceType = .PhotoLibrary
         imagePicker.delegate = self
         imagePicker.allowsEditing = true

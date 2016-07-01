@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 
+
 class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var latitudeLabel: UILabel!
@@ -199,25 +200,17 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     }
     func stringFromPlacemark(placemark: CLPlacemark) -> String {
         var line1 = ""
-        if let s = placemark.subThoroughfare {
-            line1 += s + " "
-        }
-        if let s = placemark.thoroughfare {
-            line1 += s
-        }
+        line1.addAddressPart(placemark.subThoroughfare)
+        line1.addAddressPart(placemark.thoroughfare, withSeparator: " ")
         
         var line2 = ""
-        if let s = placemark.locality {
-            line2 += s + " "
-        }
-        if let s = placemark.administrativeArea {
-            line2 += s + " "
-        }
-        if let s = placemark.postalCode {
-            line2 += s
-        }
+        line2.addAddressPart(placemark.locality)
+        line2.addAddressPart(placemark.administrativeArea, withSeparator: " ")
+        line2.addAddressPart(placemark.postalCode, withSeparator: " ")
         
-        return line1 + "\n" + line2
+        line1.addAddressPart(line2, withSeparator: "\n")
+        
+        return line1
     }
     
     override func viewDidLoad() {

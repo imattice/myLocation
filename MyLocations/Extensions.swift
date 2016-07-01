@@ -23,3 +23,14 @@ extension UIImage {
         return newImage
     }
 }
+
+extension String {
+    mutating func addAddressPart(text: String?, withSeparator separator: String = "") {
+        if let text = text {
+            if !isEmpty {
+                self += separator
+            }
+            self += text
+        }
+    }
+}

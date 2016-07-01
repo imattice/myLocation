@@ -19,6 +19,9 @@
 		7FBAA6961D1C98C3003E7B94 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBAA6941D1C98C3003E7B94 /* Location.swift */; };
 		7FBAA69C1D1DE20F003E7B94 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBAA69B1D1DE20F003E7B94 /* LocationsViewController.swift */; };
 		7FBAA69E1D1DF494003E7B94 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBAA69D1D1DF494003E7B94 /* LocationCell.swift */; };
+		7FE050D41D2707440099EAFB /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE050D31D2707440099EAFB /* CustomTabBarController.swift */; };
+		7FE050D81D270A2D0099EAFB /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE050D71D270A2D0099EAFB /* CustomNavigationController.swift */; };
+		7FE050DA1D270AA70099EAFB /* CustomImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE050D91D270AA70099EAFB /* CustomImagePickerController.swift */; };
 		7FEDD6831D1347D1001AC853 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEDD6821D1347D1001AC853 /* AppDelegate.swift */; };
 		7FEDD6851D1347D1001AC853 /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEDD6841D1347D1001AC853 /* CurrentLocationViewController.swift */; };
 		7FEDD68A1D1347D1001AC853 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FEDD6881D1347D1001AC853 /* Main.storyboard */; };
@@ -39,6 +42,9 @@
 		7FBAA6941D1C98C3003E7B94 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = ../Location.swift; sourceTree = "<group>"; };
 		7FBAA69B1D1DE20F003E7B94 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		7FBAA69D1D1DF494003E7B94 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		7FE050D31D2707440099EAFB /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		7FE050D71D270A2D0099EAFB /* CustomNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		7FE050D91D270AA70099EAFB /* CustomImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImagePickerController.swift; sourceTree = "<group>"; };
 		7FEDD67F1D1347D0001AC853 /* MyLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FEDD6821D1347D1001AC853 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FEDD6841D1347D1001AC853 /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +100,9 @@
 			children = (
 				7FBAA69D1D1DF494003E7B94 /* LocationCell.swift */,
 				7FBAA68C1D19D491003E7B94 /* HudView.swift */,
+				7FE050D31D2707440099EAFB /* CustomTabBarController.swift */,
+				7FE050D71D270A2D0099EAFB /* CustomNavigationController.swift */,
+				7FE050D91D270AA70099EAFB /* CustomImagePickerController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -127,13 +136,13 @@
 		7FEDD6811D1347D1001AC853 /* MyLocations */ = {
 			isa = PBXGroup;
 			children = (
-				7F198D201D26E287003C3DBA /* Extensions */,
 				7FEDD6821D1347D1001AC853 /* AppDelegate.swift */,
 				7FBAA68E1D1B0869003E7B94 /* Functions.swift */,
 				7FBAA69A1D1DDA5A003E7B94 /* Data */,
 				7FBAA6991D1DDA44003E7B94 /* Views */,
 				7FBAA6971D1DDA02003E7B94 /* ViewControllers */,
 				7FBAA6981D1DDA32003E7B94 /* Objects */,
+				7F198D201D26E287003C3DBA /* Extensions */,
 				7FEDD6881D1347D1001AC853 /* Main.storyboard */,
 				7FEDD68B1D1347D2001AC853 /* Assets.xcassets */,
 				7FEDD68D1D1347D2001AC853 /* LaunchScreen.storyboard */,
@@ -217,10 +226,13 @@
 				7FBAA6921D1C935F003E7B94 /* DataModel.xcdatamodeld in Sources */,
 				7FBAA6961D1C98C3003E7B94 /* Location.swift in Sources */,
 				7FBAA69C1D1DE20F003E7B94 /* LocationsViewController.swift in Sources */,
+				7FE050DA1D270AA70099EAFB /* CustomImagePickerController.swift in Sources */,
 				7FBAA68D1D19D491003E7B94 /* HudView.swift in Sources */,
 				7FBAA68F1D1B0869003E7B94 /* Functions.swift in Sources */,
+				7FE050D81D270A2D0099EAFB /* CustomNavigationController.swift in Sources */,
 				7FBAA69E1D1DF494003E7B94 /* LocationCell.swift in Sources */,
 				7FAF7C0A1D24422C00A32459 /* MapViewController.swift in Sources */,
+				7FE050D41D2707440099EAFB /* CustomTabBarController.swift in Sources */,
 				7F198D1F1D26E280003C3DBA /* Extensions.swift in Sources */,
 				7FBAA6951D1C98C3003E7B94 /* Location+CoreDataProperties.swift in Sources */,
 				7FEDD6831D1347D1001AC853 /* AppDelegate.swift in Sources */,

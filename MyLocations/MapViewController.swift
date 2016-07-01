@@ -26,13 +26,6 @@ class MapViewController: UIViewController {
     }
     var locations = [Location]()
     
-    func updateLocation() {
-//        editedLocation
-        
-//        remove edited location
-        
-//        add edited location
-    }
     func updateLocations() {
         mapView.removeAnnotations(locations)
         
@@ -126,6 +119,7 @@ extension MapViewController: MKMapViewDelegate {
             annotationView.canShowCallout = true
             annotationView.animatesDrop = false
             annotationView.pinTintColor = UIColor(red: 0.32, green: 0.82, blue: 0.4, alpha: 1)
+            annotationView.tintColor = UIColor(white: 0.0, alpha: 0.5)
             
             let rightButton = UIButton(type: .DetailDisclosure)
             rightButton.addTarget(self, action: Selector("showLocationDetails:"), forControlEvents: .TouchUpInside)
