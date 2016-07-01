@@ -36,6 +36,11 @@ class CategoryPickerViewController: UITableViewController {
                 break
             }
         }
+        
+    //STYLES
+        tableView.backgroundColor = UIColor.blackColor()
+        tableView.separatorColor = UIColor(white: 1.0, alpha: 0.2)
+        tableView.indicatorStyle = .White
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "PickedCategory" {
@@ -52,19 +57,34 @@ class CategoryPickerViewController: UITableViewController {
     }
     override func tableView(tableView: UITableView,
                             cellForRowAtIndexPath indexPath:NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier ("Cell", forIndexPath: indexPath)
-    
-    let categoryName = categories[indexPath.row]
-        cell.textLabel!.text = categoryName
-    
-    if categoryName == selectedCategoryName {
-        cell.accessoryType = .Checkmark
-    } else {
-        cell.accessoryType = .None
-    }
-    return cell
+        let cell = tableView.dequeueReusableCellWithIdentifier ("Cell", forIndexPath: indexPath)
+        
+        let categoryName = categories[indexPath.row]
+            cell.textLabel!.text = categoryName
+        
+        if categoryName == selectedCategoryName {
+            cell.accessoryType = .Checkmark
+        } else {
+            cell.accessoryType = .None
+        }
+        return cell
     }
 //MARK: -UITableViewDelegate
+    override func tableView(tableView: UITableView, 
+                            willDisplayCell cell: UITableViewCell,
+                                            forRowAtIndexPath indexPath: NSIndexPath) {
+    //STYLES
+        cell.backgroundColor = UIColor.blackColor()
+        
+        if let textLabel = cell.textLabel {
+            textLabel.textColor = UIColor.whiteColor()
+            textLabel.highlightedTextColor = textLabel.textColor
+        }
+        
+        let selectionView = UIView(frame: CGRect.zero)
+        selectionView.backgroundColor = UIColor(white: 1.0, alpha: 0.2)
+        cell.selectedBackgroundView = selectionView
+    }
     override func tableView(tableView: UITableView,
                             didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row != selectedIndexPath.row {
