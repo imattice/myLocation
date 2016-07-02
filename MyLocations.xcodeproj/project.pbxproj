@@ -22,11 +22,11 @@
 		7FE050D41D2707440099EAFB /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE050D31D2707440099EAFB /* CustomTabBarController.swift */; };
 		7FE050D81D270A2D0099EAFB /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE050D71D270A2D0099EAFB /* CustomNavigationController.swift */; };
 		7FE050DA1D270AA70099EAFB /* CustomImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE050D91D270AA70099EAFB /* CustomImagePickerController.swift */; };
+		7FE050DC1D273CDE0099EAFB /* Sound in Resources */ = {isa = PBXBuildFile; fileRef = 7FE050DB1D273CDE0099EAFB /* Sound */; };
 		7FEDD6831D1347D1001AC853 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEDD6821D1347D1001AC853 /* AppDelegate.swift */; };
 		7FEDD6851D1347D1001AC853 /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEDD6841D1347D1001AC853 /* CurrentLocationViewController.swift */; };
 		7FEDD68A1D1347D1001AC853 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FEDD6881D1347D1001AC853 /* Main.storyboard */; };
 		7FEDD68C1D1347D2001AC853 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FEDD68B1D1347D2001AC853 /* Assets.xcassets */; };
-		7FEDD68F1D1347D2001AC853 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FEDD68D1D1347D2001AC853 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,12 +45,12 @@
 		7FE050D31D2707440099EAFB /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		7FE050D71D270A2D0099EAFB /* CustomNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		7FE050D91D270AA70099EAFB /* CustomImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImagePickerController.swift; sourceTree = "<group>"; };
+		7FE050DB1D273CDE0099EAFB /* Sound */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sound; sourceTree = "<group>"; };
 		7FEDD67F1D1347D0001AC853 /* MyLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FEDD6821D1347D1001AC853 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FEDD6841D1347D1001AC853 /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewController.swift; sourceTree = "<group>"; };
 		7FEDD6891D1347D1001AC853 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7FEDD68B1D1347D2001AC853 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7FEDD68E1D1347D2001AC853 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7FEDD6901D1347D2001AC853 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,6 +121,7 @@
 			children = (
 				7FAF7C071D2441A600A32459 /* MapKit.framework */,
 				7FEDD6811D1347D1001AC853 /* MyLocations */,
+				7FE050DB1D273CDE0099EAFB /* Sound */,
 				7FEDD6801D1347D0001AC853 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -145,7 +146,6 @@
 				7F198D201D26E287003C3DBA /* Extensions */,
 				7FEDD6881D1347D1001AC853 /* Main.storyboard */,
 				7FEDD68B1D1347D2001AC853 /* Assets.xcassets */,
-				7FEDD68D1D1347D2001AC853 /* LaunchScreen.storyboard */,
 			);
 			path = MyLocations;
 			sourceTree = "<group>";
@@ -209,8 +209,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FEDD68F1D1347D2001AC853 /* LaunchScreen.storyboard in Resources */,
 				7FEDD68C1D1347D2001AC853 /* Assets.xcassets in Resources */,
+				7FE050DC1D273CDE0099EAFB /* Sound in Resources */,
 				7FEDD68A1D1347D1001AC853 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,14 +250,6 @@
 				7FEDD6891D1347D1001AC853 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		7FEDD68D1D1347D2001AC853 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7FEDD68E1D1347D2001AC853 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -350,6 +342,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MyLocations/Info.plist;
@@ -364,6 +357,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MyLocations/Info.plist;
